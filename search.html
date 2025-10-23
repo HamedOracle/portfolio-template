@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Design Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="search-page">
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <div class="search-container">
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-bar-container">
+                <div class="glassmorphism-search-bar">
+                    <div class="search-input-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search designs, projects, and more...">
+                        <button class="search-btn">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Scroll Arrow -->
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Scroll to explore</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Design Examples Section -->
+        <div class="design-examples-section">
+            <div class="examples-grid">
+                <!-- Design Card 1 -->
+                <div class="design-card" data-delay="0">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Brand Identity Design</h3>
+                        <p class="card-description">Modern logo design with comprehensive brand guidelines and visual identity system.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Design Card 2 -->
+                <div class="design-card" data-delay="200">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Mobile App UI</h3>
+                        <p class="card-description">Clean and intuitive mobile interface design with focus on user experience.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Design Card 3 -->
+                <div class="design-card" data-delay="400">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Web Design</h3>
+                        <p class="card-description">Responsive website design with modern aesthetics and optimal user flow.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Design Card 4 -->
+                <div class="design-card" data-delay="600">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Illustration</h3>
+                        <p class="card-description">Custom illustrations and digital artwork for various projects and campaigns.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Design Card 5 -->
+                <div class="design-card" data-delay="800">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Print Design</h3>
+                        <p class="card-description">Professional print materials including brochures, flyers, and business cards.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Design Card 6 -->
+                <div class="design-card" data-delay="1000">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Motion Graphics</h3>
+                        <p class="card-description">Animated graphics and video content for social media and marketing campaigns.</p>
+                        <button class="view-btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="tab-navigation">
+        <div class="tab-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="tab-item active">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-blog"></i>
+            <span>Blog</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>More</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </div>
+    </div>
+    
+    <!-- Designer Credit -->
+    <div class="designer-credit">
+        designed by x.com/krutikkkkkkkk
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
