@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Navigating to blog.html'); // Debug log
                     navigateToPage('blog.html');
                     break;
-                case 'more':
-                    // Add more functionality here
-                    console.log('More clicked');
+                case 'ai':
+                    console.log('Navigating to ai.html'); // Debug log
+                    navigateToPage('ai.html');
                     break;
             }
         });
@@ -81,6 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Blog page functionality
     initializeBlogPage();
+    
+    // Contact modal functionality
+    initializeContactModal();
 });
 
 // Search page functionality
@@ -231,6 +234,96 @@ function initializeBlogCardInteractions() {
             // Add your blog reading logic here
             // For now, we'll just show an alert
             alert(`Opening blog: ${blogTitle}`);
+        });
+    });
+}
+
+// Contact Modal functionality
+function initializeContactModal() {
+    const contactBtn = document.querySelector('.contact-btn');
+    const contactModal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeModal');
+    const copyBtns = document.querySelectorAll('.copy-btn');
+    
+    // Open modal when contact button is clicked
+    if (contactBtn && contactModal) {
+        contactBtn.addEventListener('click', function() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    }
+    
+    // Close modal when close button is clicked
+    if (closeBtn && contactModal) {
+        closeBtn.addEventListener('click', function() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+    }
+    
+    // Close modal when clicking outside the card
+    if (contactModal) {
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    });
+    
+    // Copy functionality for copy buttons
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const textToCopy = this.getAttribute('data-copy');
+            const originalText = this.querySelector('span').textContent;
+            const originalIcon = this.querySelector('i').className;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                // Show success feedback
+                btn.querySelector('span').textContent = 'Copied!';
+                btn.querySelector('i').className = 'fas fa-check';
+                btn.style.background = 'rgba(34, 197, 94, 0.8)';
+                
+                // Reset after 2 seconds
+                setTimeout(function() {
+                    btn.querySelector('span').textContent = originalText;
+                    btn.querySelector('i').className = originalIcon;
+                    btn.style.background = 'rgba(59, 130, 246, 0.6)';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    // Show success feedback
+                    btn.querySelector('span').textContent = 'Copied!';
+                    btn.querySelector('i').className = 'fas fa-check';
+                    btn.style.background = 'rgba(34, 197, 94, 0.8)';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(function() {
+                        btn.querySelector('span').textContent = originalText;
+                        btn.querySelector('i').className = originalIcon;
+                        btn.style.background = 'rgba(59, 130, 246, 0.6)';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Fallback copy failed: ', err);
+                }
+                document.body.removeChild(textArea);
+            });
         });
     });
 }
